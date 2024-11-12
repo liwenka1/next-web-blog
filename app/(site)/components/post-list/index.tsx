@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import { Search } from "lucide-react"
+
 import { Input } from "@/components/ui/input"
-import PostCard from "./post-card"
+import PostCard from "./components/post-card"
 
 const posts = [
   {

@@ -1,8 +1,10 @@
 import { useTheme } from "next-themes"
-import { Sun, Moon, Github, Twitter } from "lucide-react"
+import { Sun, Moon } from "lucide-react"
+import { FaGithub, FaXTwitter } from "react-icons/fa6"
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import SearchWithDialog from "./components/search-with-dialog"
 
 const Header = () => {
   const { theme, setTheme } = useTheme()
@@ -55,14 +57,15 @@ const Header = () => {
           </Avatar>
         </div>
         <div className="flex items-center gap-4">
+          <SearchWithDialog />
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <FaGithub className="h-4 w-4" />
+          </Button>
+          <Button variant="ghost" size="icon" className="rounded-full">
+            <FaXTwitter className="h-4 w-4" />
+          </Button>
           <Button variant="ghost" size="icon" className="rounded-full" onClick={handleToggleTheme}>
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Github className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Twitter className="h-4 w-4" />
           </Button>
         </div>
       </nav>
