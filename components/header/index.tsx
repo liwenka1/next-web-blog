@@ -60,7 +60,7 @@ const Header = () => {
       <nav className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
         <div className="flex items-center gap-2">
           <Avatar className="h-8 w-8 cursor-pointer" onClick={() => router.push("/")}>
-            <AvatarImage src="/placeholder.svg" alt="Avatar" />
+            <AvatarImage src="/avatar.jpg" alt="Avatar" />
             <AvatarFallback>AV</AvatarFallback>
           </Avatar>
         </div>
