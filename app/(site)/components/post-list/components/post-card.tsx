@@ -1,18 +1,15 @@
-import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { format, parseISO } from "date-fns"
+
+import type { Post } from "contentlayer/generated"
 
 interface PostCardProps {
-  post: {
-    id: number
-    title: string
-    date: string
-    summary: string
-    lang: string
-  }
+  post: Post
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post: { date, lang, title, summary } }) => {
+const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const ref = useRef<HTMLAnchorElement>(null)
   const [enter, setEnter] = useState(false)
 
@@ -53,7 +50,7 @@ const PostCard: React.FC<PostCardProps> = ({ post: { date, lang, title, summary 
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <Link ref={ref} href="#" className="relative block py-8 focus-visible:outline-0">
+      <Link ref={ref} href={post.url} className="relative block py-8 focus-visible:outline-0">
         <AnimatePresence>
           {enter && (
             <motion.div
@@ -67,11 +64,11 @@ const PostCard: React.FC<PostCardProps> = ({ post: { date, lang, title, summary 
           )}
         </AnimatePresence>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <time>{date}</time>
-          {lang === "zh" && <span className="rounded border border-border/40 px-1 text-xs">中文</span>}
+          <time>{format(parseISO(post.date), "LLLL d, yyyy")}</time>
+          <span className="rounded border border-border/40 px-1 text-xs">中文</span>
         </div>
-        <h2 className="text-xl font-medium transition-colors">{title}</h2>
-        <p className="line-clamp-2 text-muted-foreground">{summary}</p>
+        <h2 className="text-xl font-medium transition-colors"> {post.title}</h2>
+        {/* <p className="line-clamp-2 text-muted-foreground">{summary}</p> */}
       </Link>
     </motion.article>
   )

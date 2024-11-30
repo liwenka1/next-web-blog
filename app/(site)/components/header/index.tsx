@@ -1,12 +1,15 @@
+import { useState } from "react"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
 import { FaGithub, FaXTwitter } from "react-icons/fa6"
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import SearchWithDialog from "./components/search-with-dialog"
+
+import SearchWithCommand from "./components/search-with-command"
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
   const { theme, setTheme } = useTheme()
 
   const isDark = theme === "dark"
@@ -56,8 +59,14 @@ const Header = () => {
             <AvatarFallback>AV</AvatarFallback>
           </Avatar>
         </div>
-        <div className="flex items-center gap-4">
-          <SearchWithDialog />
+        <div className="flex items-center gap-2">
+          <Button
+            variant="outline"
+            className="relative h-8 w-full justify-start rounded-[0.5rem] bg-muted/50 text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-56 xl:w-64"
+            onClick={() => setOpen(true)}
+          >
+            搜索博客...
+          </Button>
           <Button variant="ghost" size="icon" className="rounded-full">
             <FaGithub className="h-4 w-4" />
           </Button>
@@ -69,6 +78,7 @@ const Header = () => {
           </Button>
         </div>
       </nav>
+      <SearchWithCommand open={open} setOpen={setOpen} />
     </header>
   )
 }
