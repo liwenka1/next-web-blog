@@ -1,7 +1,10 @@
+"use client"
+
 import { useState } from "react"
 import { useTheme } from "next-themes"
 import { Sun, Moon } from "lucide-react"
 import { FaGithub, FaXTwitter } from "react-icons/fa6"
+import { useRouter } from "next/navigation"
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -50,11 +53,13 @@ const Header = () => {
     toggleViewTransition(event)
   }
 
+  const router = useRouter()
+
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-sm">
+    <header className="border-b border-border/40 bg-background/80 backdrop-blur-sm">
       <nav className="mx-auto flex h-16 max-w-4xl items-center justify-between px-6">
         <div className="flex items-center gap-2">
-          <Avatar className="h-8 w-8">
+          <Avatar className="h-8 w-8 cursor-pointer" onClick={() => router.push("/")}>
             <AvatarImage src="/placeholder.svg" alt="Avatar" />
             <AvatarFallback>AV</AvatarFallback>
           </Avatar>

@@ -9,7 +9,7 @@ interface PostCardProps {
   post: Post
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+const PostCard: React.FC<PostCardProps> = ({ post: { title, date, description, url } }) => {
   const ref = useRef<HTMLAnchorElement>(null)
   const [enter, setEnter] = useState(false)
 
@@ -50,7 +50,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
-      <Link ref={ref} href={post.url} className="relative block py-8 focus-visible:outline-0">
+      <Link ref={ref} href={url} className="relative block py-8 focus-visible:outline-0">
         <AnimatePresence>
           {enter && (
             <motion.div
@@ -64,11 +64,11 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
           )}
         </AnimatePresence>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-          <time>{format(parseISO(post.date), "LLLL d, yyyy")}</time>
+          <time>{format(parseISO(date), "LLLL d, yyyy")}</time>
           <span className="rounded border border-border/40 px-1 text-xs">中文</span>
         </div>
-        <h2 className="text-xl font-medium transition-colors"> {post.title}</h2>
-        {/* <p className="line-clamp-2 text-muted-foreground">{summary}</p> */}
+        <h2 className="text-xl font-medium transition-colors"> {title}</h2>
+        <p className="line-clamp-2 text-muted-foreground">{description}</p>
       </Link>
     </motion.article>
   )

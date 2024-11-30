@@ -1,14 +1,11 @@
 "use client"
 
-import Header from "./components/header"
-import Fotter from "./components/footer"
 import PostList from "./components/post-list"
+import Fotter from "./components/footer"
 
 const Site = () => {
   return (
-    <div className="h-full w-full bg-background text-foreground transition-colors duration-500 ease-in-out">
-      <Header />
-
+    <div className="w-full">
       <PostList />
 
       <Fotter />

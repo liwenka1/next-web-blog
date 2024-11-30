@@ -7,7 +7,7 @@ const PostList = () => {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
-    <main className="relative mx-auto max-w-4xl px-6 pb-16 pt-24">
+    <main className="relative mx-auto max-w-4xl px-6 pb-16">
       {posts.map((post, idx) => (
         <PostCard key={idx} post={post} />
       ))}
