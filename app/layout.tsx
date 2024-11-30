@@ -3,6 +3,8 @@ import localFont from "next/font/local"
 import { ThemeProvider } from "next-themes"
 
 import "@/styles/globals.css"
+import '@/styles/prism-dracula.css'
+import '@/styles/prism-plus.css'
 import Header from "@/components/header"
 
 const geistSans = localFont({

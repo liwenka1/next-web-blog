@@ -2,7 +2,7 @@ import { format, parseISO } from "date-fns"
 import { allPosts } from "contentlayer/generated"
 import { notFound } from "next/navigation"
 
-import PostFotter from "../components/PostFotter"
+import PostFotter from "../components/post-fotter"
 
 interface PostDetail {
   params: { slug: string }
@@ -15,7 +15,7 @@ const PostDetail: React.FC<PostDetail> = ({ params }) => {
 
   return (
     <div className="mx-auto max-w-xl">
-      <article className="py-8">
+      <article className="prose dark:prose-invert py-8">
         <div className="mb-8 text-center">
           <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
             {format(parseISO(post.date), "LLLL d, yyyy")}
