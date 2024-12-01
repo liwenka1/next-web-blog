@@ -16,11 +16,11 @@ const PostDetail: React.FC<PostDetail> = ({ params }) => {
   return (
     <div className="mx-auto max-w-xl">
       <article className="prose dark:prose-invert py-8">
-        <div className="mb-8 text-center">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold">{post.title}</h1>
           <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
             {format(parseISO(post.date), "LLLL d, yyyy")}
           </time>
-          <h1 className="text-3xl font-bold">{post.title}</h1>
         </div>
         <div className="[&>*:last-child]:mb-0 [&>*]:mb-3" dangerouslySetInnerHTML={{ __html: post.body.html }} />
       </article>
