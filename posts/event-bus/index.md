@@ -1,6 +1,7 @@
 ---
 title: EventBus 类
 date: 2024-04-16
+tags: ["JavaScript"]
 description: 简单实现一个 EventBus 类，拥有 on、off 和 emit 三个方法
 ---
 

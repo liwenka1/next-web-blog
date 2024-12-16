@@ -1,6 +1,7 @@
 ---
 title: 理解 CSS 的 z-index 属性
 date: 2024-03-21
+tags: ["CSS"]
 description: 通过一些例子来讲述 z-index 的一些规则以及进行简单直白的图层优先级分析。
 ---
 

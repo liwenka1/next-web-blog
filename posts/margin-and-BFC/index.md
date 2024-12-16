@@ -1,6 +1,7 @@
 ---
 title: 外边距折叠（ margin collapsing ）与区块格式化上下文（ BFC ）
 date: 2024-03-18
+tags: ["CSS"]
 description: 讲述外边距折叠（ margin collapsing ）的现象与影响以及区块格式化上下文（ BFC ）的现象和影响，同时如何去利用 BFC 来解决 margin collapsing。
 ---
 

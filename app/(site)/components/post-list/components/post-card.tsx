@@ -9,7 +9,7 @@ interface PostCardProps {
   post: Post
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post: { title, date, description, url } }) => {
+const PostCard: React.FC<PostCardProps> = ({ post: { title, date, tags, description, url } }) => {
   const ref = useRef<HTMLAnchorElement>(null)
   const [enter, setEnter] = useState(false)
 
@@ -54,7 +54,7 @@ const PostCard: React.FC<PostCardProps> = ({ post: { title, date, description, u
         <AnimatePresence>
           {enter && (
             <motion.div
-              className="-z-1 absolute -inset-x-4 inset-y-4 rounded-lg bg-accent/50"
+              className="absolute -inset-x-4 inset-y-4 -z-10 rounded-lg bg-accent/50"
               initial={{ opacity: 0.2, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
@@ -65,7 +65,11 @@ const PostCard: React.FC<PostCardProps> = ({ post: { title, date, description, u
         </AnimatePresence>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <time>{format(parseISO(date), "LLLL d, yyyy")}</time>
-          <span className="rounded border border-border/40 px-1 text-xs">中文</span>
+          {tags?.map((tag) => (
+            <span className="rounded border border-border/40 px-1 text-xs" key={tag}>
+              {tag}
+            </span>
+          ))}
         </div>
         <h2 className="text-xl font-medium transition-colors"> {title}</h2>
         <p className="line-clamp-2 text-muted-foreground">{description}</p>

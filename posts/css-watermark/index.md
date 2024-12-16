@@ -1,6 +1,7 @@
 ---
 title: Watermark 水印组件
 date: 2024-04-12
+tags: ["CSS"]
 description: Watermark 水印组件的简单实现
 ---
 
