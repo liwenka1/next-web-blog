@@ -3,9 +3,10 @@ import localFont from "next/font/local"
 import { ThemeProvider } from "next-themes"
 
 import "@/styles/globals.css"
-import '@/styles/prism-dracula.css'
-import '@/styles/prism-plus.css'
+import "@/styles/prism-dracula.css"
+import "@/styles/prism-plus.css"
 import Header from "@/components/header"
+import { siteConfig } from "@/config/site"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -19,8 +20,8 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "文凯的菠萝格",
-  description: "一个博客网站"
+  title: siteConfig.name,
+  description: siteConfig.description
 }
 
 export default function RootLayout({

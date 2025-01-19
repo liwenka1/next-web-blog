@@ -7,7 +7,7 @@ interface FotterProps {
 
 const PostFotter = ({ post }: FotterProps) => {
   return (
-    <footer className="pb-10">
+    <footer className="px-8 pb-10 sm:px-0">
       <hr className="mt-10" />
       <p className="mt-10">
         <Link className="text-link underline underline-offset-8" href="https://x.com/liwenka1" target="_blank">

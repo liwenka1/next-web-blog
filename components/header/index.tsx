@@ -10,6 +10,8 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 import SearchWithCommand from "./components/search-with-command"
+import Link from "next/link"
+import { siteConfig } from "@/config/site"
 
 const Header = () => {
   const [open, setOpen] = useState(false)
@@ -72,12 +74,16 @@ const Header = () => {
           >
             搜索博客...
           </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <FaGithub className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <FaXTwitter className="h-4 w-4" />
-          </Button>
+          <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full">
+              <FaGithub className="h-4 w-4" />
+            </Button>
+          </Link>
+          <Link href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
+            <Button variant="ghost" size="icon" className="rounded-full">
+              <FaXTwitter className="h-4 w-4" />
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon" className="rounded-full" onClick={handleToggleTheme}>
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>

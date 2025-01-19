@@ -15,7 +15,7 @@ const PostDetail: React.FC<PostDetail> = ({ params }) => {
 
   return (
     <div className="mx-auto max-w-xl">
-      <article className="prose dark:prose-invert py-8">
+      <article className="prose px-8 py-8 dark:prose-invert sm:px-0">
         <div className="mb-8">
           <h1 className="text-3xl font-bold">{post.title}</h1>
           <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
