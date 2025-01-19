@@ -4,12 +4,13 @@ import { notFound } from "next/navigation"
 
 import PostFotter from "../components/post-fotter"
 
-interface PostDetail {
-  params: { slug: string }
+interface PostDetailProps {
+  params: Promise<{ slug: string }>
 }
 
-const PostDetail: React.FC<PostDetail> = ({ params }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+const PostDetail: React.FC<PostDetailProps> = async (props) => {
+  const { slug } = await props.params
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
 
   if (!post) notFound()
 
